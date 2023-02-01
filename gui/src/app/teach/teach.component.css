@@ -1,0 +1,174 @@
+.assembly-title {
+  font-weight: bold;
+}
+
+.toolbar {
+  background-color: #283593;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  padding-top: 3px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.menu-bar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  max-width: 750px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.menu-item {
+  display: inline-block;
+  width: 32%;
+  min-width: 180px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  margin-right: 3px;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+}
+
+.menu-item:hover {
+  background-color: rgb(201, 201, 201);
+  cursor: pointer;
+  color: black;
+  border-color: black;
+}
+
+.menu-item:last-child {
+  margin-right: 0px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.menu-item:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.mat-toolbar-single-row {
+  height: 44px;
+}
+
+.current {
+  border: 3px solid #283593;
+  color: #283593;
+}
+
+.prev {
+  border: 2px solid #7d89eb;
+  color: #7d89eb;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.empty-space {
+  width: 100px;
+}
+
+a.home-link {
+  text-decoration: none;
+  color: white;
+  height: 24px;
+}
+
+a.home-link:hover {
+  color: lightgrey;
+}
+
+.menu-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.select-icon {
+  margin-left: 30px;
+}
+
+.controls button {
+  padding: 5px;
+  border: 3px solid grey;
+  color: grey;
+  background-color: white;
+  border-radius: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+  height: 60px;
+  width: 60px;
+  padding-right: 21px;
+  padding-top: 7px;
+}
+
+.controls button:hover {
+  cursor: pointer;
+  color: black;
+  border: 3px solid black;
+}
+
+.controls button:disabled {
+  cursor: not-allowed;
+  color: lightgrey;
+  border: 3px solid lightgrey;
+}
+
+.control-icon {
+  font-size: 40px;
+}
+
+.controls {
+  width: 60%;
+  min-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.control-tooltip {
+  font-size: 12pt;
+}
+
+.gzweb-div iframe {
+  width: 95%;
+  height: 75vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gzweb-div {
+  text-align: center;
+}
+
+.kf-edit {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.controls-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.selected-icon {
+  vertical-align: middle;
+  height: 0px !important;
+  line-height: 0px;
+}

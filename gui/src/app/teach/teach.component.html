@@ -1,0 +1,62 @@
+<div class="container">
+  <mat-toolbar class="toolbar">
+    <div class="logo">
+      <img class="logo-img" src="../../assets/images/logo.png">
+    </div>
+    <span class="spacer"></span>
+    <h2 class="assembly-title">{{assembly.assembly_name}} (Teaching by Simulation)</h2>
+    <span class="spacer"></span>
+    <span class="empty-space"></span>
+    <a class="home-link" [routerLink]="['/setup']"><mat-icon class="home-icon" aria-hidden="false" aria-label="Homepage">home</mat-icon></a>
+  </mat-toolbar>
+
+  <div class="gzweb-div">
+    <iframe src='http://160.40.51.95:8080' id='gzweb-frame'></iframe>
+  </div>
+
+  <div class="controls">
+    <table class="controls-table">
+      <tr>
+        <td>
+          <mat-form-field class="kf-edit">
+            <mat-label>Edit Positions</mat-label>
+            <mat-select  [(ngModel)]="selectedKf" #editkf name="editkf" required (selectionChange)="onSelectKf()">
+              <mat-select-trigger>
+                {{assembly.keyframes[+selectedKf].semantics}}<span class="select-icon" *ngIf="!isEmptyObject(assembly.keyframes[+selectedKf].object_poses)"><mat-icon class="selected-icon">check</mat-icon></span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let kf of assembly.keyframes; let i=index" value={{i}}>{{kf.semantics}}<span class="select-icon" *ngIf="!isEmptyObject(kf.object_poses)"><mat-icon>check</mat-icon></span></mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="kf-edit">
+            <mat-label>Moving Part</mat-label>
+            <mat-select  [(ngModel)]="selectedMoving" #movpart name="movpart" required>
+                <mat-option value='0'>none</mat-option>
+                <mat-option *ngFor="let part of movingParts; let i=index" value={{part.index}}>{{part.display_name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td>
+          <button matTooltip="Edit Position" matTooltipClass="control-tooltip" (click)="edit('pose')" [disabled]="!(simStatus=='home')"><mat-icon class="control-icon">open_with</mat-icon></button>
+        </td>
+        <td>
+          <button matTooltip="Edit Orientation" matTooltipClass="control-tooltip" (click)="edit('orient')" [disabled]="!(simStatus=='home')"><mat-icon class="control-icon">3d_rotation</mat-icon></button>
+        </td>
+        <td>
+          <button matTooltip="Save Position" matTooltipClass="control-tooltip" (click)="onSave()" [disabled]="!(simStatus=='home')"><mat-icon class="control-icon">save</mat-icon></button>
+        </td>
+        <td>
+          <button matTooltip="Begin Simulation" matTooltipClass="control-tooltip" (click)="onPlayAnim()" [disabled]="!(simStatus=='home')"><mat-icon class="control-icon">play_arrow</mat-icon></button>
+        </td>
+        <td>
+          <button matTooltip="Refresh Simulation" matTooltipClass="control-tooltip" (click)="onRefresh()" [disabled]="!(simStatus=='finish')"><mat-icon class="control-icon">refresh</mat-icon></button>
+        </td>
+        <td>
+          <button matTooltip="Download Assembly" matTooltipClass="control-tooltip" (click)="onDownload()" [disabled]="!isJsonReady()"><mat-icon class="control-icon">download</mat-icon></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

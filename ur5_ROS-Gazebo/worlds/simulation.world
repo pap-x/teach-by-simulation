@@ -1,0 +1,26 @@
+  <sdf version="1.4">
+    <world name="default">
+      <include>
+        <uri>model://ground_plane</uri>
+      </include>
+      <include>
+        <uri>model://sun</uri>
+      </include>
+      <include>
+        <uri>model://tv_49</uri>
+        <pose>0.152 -0.54 1.05 0 0 3.1416</pose>
+      </include>
+      <include>
+        <uri>model://yellow_pcb</uri>
+        <pose>-0.55 -0.56 1.023 0 0 3.1416</pose>
+      </include>
+      <include>
+        <uri>model://green_pcb</uri>
+        <pose>-0.55 -0.3 1.023 0 0 1.5708</pose>
+      </include>
+      <include>
+        <uri>model://table_new</uri>
+        <pose>0 -0.327805 0 0 0 0</pose>
+      </include>
+    </world>
+  </sdf>

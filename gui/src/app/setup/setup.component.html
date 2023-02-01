@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="title-bg"><h1>TEACHING BY SIMULATION</h1></div>
+  <mat-card class="start-card">
+    <div class="logo-image">
+      <img src="../assets/images/logo.png">
+      <!--<p>Collaborate HRI</p>-->
+    </div>
+    <form class="start-form" #startForm="ngForm">
+      <mat-form-field class="setup-input">
+        <input matInput placeholder="Assembly Name" [(ngModel)]="assemblyName" name="assemblyName" required>
+      </mat-form-field>
+      <mat-form-field class="setup-input">
+        <mat-label>Assembly Type</mat-label>
+        <mat-select [(ngModel)]="assemblyType" #type name="type" required>
+            <mat-option matTooltip="{{aType.desc}}" *ngFor="let aType of assemblyTypes; let i=index" value={{aType.name}}>{{aType.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="setup-input">
+        <mat-label>Number of Parts</mat-label>
+        <mat-select #nParts name="numParts" [(ngModel)]="numParts" required>
+            <mat-option value='2'>2</mat-option>
+            <mat-option value='3'>3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="file-input-div" *ngIf='numParts=="2"||numParts=="3"'>
+        <input type="file" class="file-input" (change)="onFileSelected($event, 1)" #fileAUpload accept=".zip">
+        <button mat-raised-button type='button' color="accent" class="upload-btn"
+          (click)="fileAUpload.click()">
+          UPLOAD <mat-icon *ngIf="uploadStatus[0]==null">upload</mat-icon>
+          <mat-spinner *ngIf="uploadStatus[0]=='uploading'" diameter="20"></mat-spinner>
+          <mat-icon *ngIf="uploadStatus[0]=='completed'">check</mat-icon>
+        </button>
+
+        <mat-form-field class="setup-input-half">
+          <input matInput placeholder="Part 1 Name" [(ngModel)]="partAName" name="partAName" required>
+        </mat-form-field>
+
+        <div class="checkbox-div">
+          <span>Static</span><mat-icon class="help-icon" matTooltip="The part is not moved by the robot">help_outline</mat-icon>
+          <mat-checkbox class="file-input-ckbox" [(ngModel)]="partAStatic" name=
+          "fileABox"></mat-checkbox>
+        </div>
+      </div>
+
+      <div class="file-input-div" *ngIf='numParts=="2"||numParts=="3"'>
+        <input type="file" class="file-input" (change)="onFileSelected($event, 2)" #fileBUpload accept=".zip">
+        <button mat-raised-button type='button' color="accent" class="upload-btn"
+          (click)="fileBUpload.click()">
+            UPLOAD <mat-icon *ngIf="uploadStatus[1]==null">upload</mat-icon>
+            <mat-spinner *ngIf="uploadStatus[1]=='uploading'" diameter="20"></mat-spinner>
+            <mat-icon *ngIf="uploadStatus[1]=='completed'">check</mat-icon>
+        </button>
+
+        <mat-form-field class="setup-input-half">
+          <input matInput placeholder="Part 2 Name" [(ngModel)]="partBName" name="partBName" required>
+        </mat-form-field>
+
+        <div class="checkbox-div">
+          <span>Static</span><mat-icon class="help-icon" matTooltip="The part is not moved by the robot">help_outline</mat-icon>
+          <mat-checkbox class="file-input-ckbox" [(ngModel)]="partBStatic" name=
+          "fileBBox"></mat-checkbox>
+        </div>
+      </div>
+
+      <div class="file-input-div" *ngIf='numParts=="3"'>
+        <input type="file" class="file-input" (change)="onFileSelected($event, 3)" #fileCUpload accept=".zip">
+        <button mat-raised-button type='button' color="accent" class="upload-btn"
+          (click)="fileCUpload.click()">
+            UPLOAD <mat-icon *ngIf="uploadStatus[2]==null">upload</mat-icon>
+            <mat-spinner *ngIf="uploadStatus[2]=='uploading'" diameter="20"></mat-spinner>
+            <mat-icon *ngIf="uploadStatus[2]=='completed'">check</mat-icon>
+        </button>
+
+        <mat-form-field class="setup-input-half">
+          <input matInput placeholder="Part 3 Name" [(ngModel)]="partCName" name="partCName" required>
+        </mat-form-field>
+
+        <div class="checkbox-div">
+          <span>Static</span><mat-icon class="help-icon" matTooltip="The part is not moved by the robot">help_outline</mat-icon>
+          <mat-checkbox class="file-input-ckbox" [(ngModel)]="partCStatic" name=
+          "fileCBox"></mat-checkbox>
+        </div>
+      </div>
+      <div *ngIf="checkNames()">
+        <span class="error-msg">Part names should be unique</span>
+      </div>
+      <button mat-raised-button color="primary" class="proceed-btn" [disabled] = "proceedDisabled()"
+          (click)="onProceed()">
+            PROCEED
+        </button>
+    </form>
+  </mat-card>
+</div>
