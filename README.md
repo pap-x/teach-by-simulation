@@ -19,7 +19,7 @@ Under directory `ur_ws/src/ur5_ROS-Gazebo/src/ur_description/`, copy `common.gaz
   $ catkin_make
   $ source devel/setup.bash  
   ```
-  - Unzip and copy the files under `ur5_ROS-Gazebo/models` to `~/.gazebo/models` directory
+  - Unzip and copy the files under `ur5_ROS-Gazebo/models` to `~/.gazebo/models` and to ~/gzweb/assets/models` directory
   - Run `npm install` in `gui` and `server` folders
 
 #### Running the code
