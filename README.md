@@ -1,5 +1,5 @@
 ## Teach by Simulation
-A robot teaching platform running on ROS with a front-end GUI built on Angular. The user opens the web application in order to teach the assembly through a 3D simulation environment. [Demo](https://drive.google.com/file/d/13pZFC7mTYEvzkSX0FFcxbXecyGgloEgz/view?usp=share_link)
+A robot teaching platform running on ROS with a front-end GUI built on Angular. The user opens the web application in order to teach the assembly through a 3D simulation environment. [Demo Video](https://drive.google.com/file/d/13pZFC7mTYEvzkSX0FFcxbXecyGgloEgz/view?usp=share_link)
 
 #### How to use this repository
  - This project was tested in Ubuntu 18.04 with ROS kinetic.
